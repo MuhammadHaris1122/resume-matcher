@@ -11,7 +11,7 @@ from groq import Groq
 
 # Load environment variables
 load_dotenv()
-groq_api_key = os.getenv("GROQ_API_KEY")
+groq_api_key = os.getenv("GROQ_API_KEY") or (st.secrets.get("GROQ_API_KEY") if hasattr(st, "secrets") else None)
 
 st.set_page_config(page_title="AI Resume vs JD Matcher", page_icon="🎯", layout="wide")
 
